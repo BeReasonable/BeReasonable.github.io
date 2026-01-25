@@ -66,8 +66,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Wedding in Rome</p>
+            <p>&copy; <span id="year"></span> Wedding in Rome</p>
         </div>
     </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
