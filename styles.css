@@ -8,51 +8,27 @@
 body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fafafa;
+    color: #3D342B;
+    background-color: #FAF4ED;
 }
 
 /* Hero section */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 2rem;
+    align-items: center;
+    background-color: #FAF4ED;
 }
 
-.hero-content {
-    max-width: 800px;
-}
-
-.names {
-    font-size: 3.5rem;
-    font-weight: 300;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
-}
-
-.tagline {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
-    opacity: 0.95;
-}
-
-.divider {
-    width: 100px;
-    height: 2px;
-    background-color: white;
-    margin: 2rem auto;
-}
-
-.location {
-    font-size: 1.8rem;
-    font-weight: 400;
-    letter-spacing: 1px;
+.hero-image {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
 /* Container */
@@ -72,12 +48,12 @@ section h2 {
     font-weight: 300;
     text-align: center;
     margin-bottom: 3rem;
-    color: #667eea;
+    color: #7A6446;
 }
 
 /* Details section */
 .details {
-    background-color: white;
+    background-color: #FFFBF5;
 }
 
 .info-grid {
@@ -90,74 +66,38 @@ section h2 {
 .info-card {
     text-align: center;
     padding: 2rem;
-    background-color: #fafafa;
+    background-color: #F5EDE3;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 10px 25px rgba(212, 165, 160, 0.2);
 }
 
 .info-card h3 {
     font-size: 1.5rem;
-    color: #667eea;
+    color: #9B7E4A;
     margin-bottom: 1rem;
     font-weight: 400;
 }
 
 .info-card p {
     font-size: 1.1rem;
-    color: #555;
+    color: #4A3F35;
     margin-bottom: 0.5rem;
 }
 
 .info-card .secondary {
     font-size: 0.95rem;
-    color: #888;
+    color: #6B5D4F;
     font-style: italic;
-}
-
-/* Story section */
-.story {
-    background-color: #f5f5f5;
-}
-
-.story p {
-    font-size: 1.2rem;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.8;
-    color: #555;
-}
-
-/* RSVP section */
-.rsvp {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    text-align: center;
-}
-
-.rsvp h2 {
-    color: white;
-}
-
-.rsvp p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.contact-info {
-    margin-top: 2rem;
-    font-style: italic;
-    opacity: 0.9;
 }
 
 /* Travel section */
 .travel {
-    background-color: white;
+    background-color: #FFFBF5;
 }
 
 .travel p {
@@ -165,14 +105,14 @@ section h2 {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    color: #555;
+    color: #4A3F35;
     line-height: 1.8;
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #4A3F35;
+    color: #FAF4ED;
     text-align: center;
     padding: 2rem 0;
 }
@@ -184,18 +124,6 @@ footer p {
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .names {
-        font-size: 2.5rem;
-    }
-
-    .tagline {
-        font-size: 1.2rem;
-    }
-
-    .location {
-        font-size: 1.4rem;
-    }
-
     section h2 {
         font-size: 2rem;
     }
@@ -204,29 +132,25 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    .hero {
-        min-height: 80vh;
+    .container {
+        padding: 0 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .names {
-        font-size: 2rem;
-    }
-
-    .tagline {
-        font-size: 1rem;
-    }
-
-    .location {
-        font-size: 1.2rem;
-    }
-
     section {
         padding: 3rem 0;
     }
 
     section h2 {
         font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .info-card {
+        padding: 1.5rem;
     }
 }
