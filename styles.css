@@ -622,6 +622,49 @@ a.activity-tag:hover {
     }
 }
 
+/* ─── Map ────────────────────────────────────────────────── */
+
+.map-section {
+    background-color: #FAF4ED;
+    padding-bottom: 0;
+}
+
+.map-section .container {
+    padding-bottom: 1.5rem;
+}
+
+#wedding-map {
+    height: 520px;
+    width: 100%;
+}
+
+.map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.legend-item {
+    font-size: 0.72rem;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.04em;
+    padding: 0.25em 0.85em;
+    border-radius: 20px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.legend-event  { background-color: #B85C3A; }
+.legend-book   { background-color: #9B7E4A; }
+.legend-sight  { background-color: #4A6E9B; }
+.legend-market { background-color: #5A8A5A; }
+
+@media (max-width: 480px) {
+    #wedding-map { height: 420px; }
+}
+
 /* ─── Registry ───────────────────────────────────────────── */
 
 .registry {
