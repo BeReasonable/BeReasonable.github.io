@@ -1,4 +1,8 @@
 /* Reset and base styles */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -122,13 +126,62 @@ section h2 {
     background-color: #FFFBF5;
 }
 
-.travel p {
-    font-size: 1.1rem;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+.travel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.travel-card {
+    background-color: #F5EDE3;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.travel-card h3 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #7A6446;
+    margin-bottom: 0.85rem;
+}
+
+.travel-card p {
+    font-size: 0.92rem;
     color: #4A3F35;
-    line-height: 1.8;
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+}
+
+.travel-card p:last-child {
+    margin-bottom: 0;
+}
+
+.travel-list {
+    list-style: none;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.travel-list li {
+    font-size: 0.92rem;
+    color: #4A3F35;
+    line-height: 1.6;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.travel-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #7A6446;
+}
+
+.travel-list a {
+    color: #7A6446;
 }
 
 /* Footer */
@@ -175,4 +228,470 @@ footer p {
     .info-card {
         padding: 1.5rem;
     }
+}
+
+/* ─── Navigation ─────────────────────────────────────────── */
+
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #FFFBF5;
+    border-bottom: 1px solid #E8DDD2;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.nav-brand {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #7A6446;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+}
+
+.nav-link {
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    color: #4A3F35;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: #7A6446;
+}
+
+/* Hamburger button — hidden on desktop */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    background-color: #4A3F35;
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+/* Animated X when open */
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+.nav-toggle.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+@media (max-width: 700px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background-color: #FFFBF5;
+        border-bottom: 1px solid #E8DDD2;
+        padding: 0.5rem 0;
+    }
+
+    .nav-links.is-open {
+        display: flex;
+    }
+
+    .nav-links li {
+        border-top: 1px solid #F0E8DF;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0.85rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* ─── Section intro text ─────────────────────────────────── */
+
+.section-intro {
+    font-size: 1.05rem;
+    color: #6B5D4F;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    line-height: 1.75;
+}
+
+/* ─── Itinerary ──────────────────────────────────────────── */
+
+.itinerary {
+    background-color: #FAF4ED;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.timeline-day {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0 2rem;
+    align-items: start;
+}
+
+.timeline-date {
+    text-align: right;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.timeline-date .day-name {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7A6446;
+}
+
+.timeline-date .day-num {
+    display: block;
+    font-size: 1.1rem;
+    color: #4A3F35;
+    margin-top: 0.15rem;
+}
+
+.timeline-events {
+    border-left: 2px solid #E8DDD2;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.timeline-event {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.event-time {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7A6446;
+}
+
+.event-detail h4 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #3D342B;
+    margin-bottom: 0.3rem;
+}
+
+.event-detail p {
+    font-size: 0.95rem;
+    color: #6B5D4F;
+    line-height: 1.65;
+}
+
+.event-detail a {
+    color: #7A6446;
+}
+
+.event-detail.group-event {
+    background-color: #F5EDE3;
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+}
+
+.event-detail.wedding-event {
+    background-color: #EEE0D0;
+}
+
+.event-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7A6446;
+    border: 1px solid #C4A882;
+    border-radius: 20px;
+    padding: 0.15em 0.65em;
+    margin-bottom: 0.4rem;
+}
+
+.wedding-event .event-badge {
+    background-color: #C4A882;
+    color: #3D342B;
+    border-color: #C4A882;
+}
+
+@media (max-width: 560px) {
+    .timeline-day {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .timeline-date {
+        text-align: left;
+        display: flex;
+        gap: 0.5rem;
+        align-items: baseline;
+    }
+
+    .timeline-date .day-name::after {
+        content: ',';
+    }
+
+    .timeline-events {
+        padding-left: 1rem;
+    }
+}
+
+/* ─── Explore Rome ───────────────────────────────────────── */
+
+.explore {
+    background-color: #FFFBF5;
+}
+
+.explore-category {
+    margin-bottom: 3rem;
+}
+
+.category-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #7A6446;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #E8DDD2;
+    letter-spacing: 0.02em;
+}
+
+.category-intro {
+    font-size: 0.95rem;
+    color: #6B5D4F;
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1.25rem;
+}
+
+.activity-card {
+    background-color: #F5EDE3;
+    border-radius: 8px;
+    padding: 1.25rem 1.35rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(122, 100, 70, 0.12);
+}
+
+.activity-card h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #3D342B;
+    margin-bottom: 0.4rem;
+}
+
+.activity-card p {
+    font-size: 0.9rem;
+    color: #6B5D4F;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+.activity-card p:last-child {
+    margin-bottom: 0;
+}
+
+.activity-meta {
+    font-size: 0.8rem !important;
+    color: #7A6446 !important;
+    font-style: italic;
+    margin-bottom: 0.4rem !important;
+}
+
+.activity-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7A6446;
+    border: 1px solid #C4A882;
+    border-radius: 20px;
+    padding: 0.15em 0.65em;
+    margin-top: 0.35rem;
+}
+
+/* Tips box */
+.explore-tips {
+    background-color: #F5EDE3;
+    border-radius: 8px;
+    padding: 1.75rem 2rem;
+    margin-top: 1rem;
+}
+
+.explore-tips h3 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #7A6446;
+    margin-bottom: 1rem;
+}
+
+.tips-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.tips-list li {
+    font-size: 0.92rem;
+    color: #4A3F35;
+    line-height: 1.6;
+    padding-left: 1.1rem;
+    position: relative;
+}
+
+.tips-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #7A6446;
+}
+
+@media (max-width: 480px) {
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── Registry ───────────────────────────────────────────── */
+
+.registry {
+    background-color: #FAF4ED;
+}
+
+.registry-placeholder {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background-color: #F5EDE3;
+    border-radius: 8px;
+}
+
+.registry-placeholder p {
+    font-size: 1.05rem;
+    color: #6B5D4F;
+    line-height: 1.75;
+}
+
+/* ─── Info card links ────────────────────────────────────── */
+
+.info-card a {
+    color: #7A6446;
+    text-decoration: none;
+    border-bottom: 1px dotted #C4A882;
+}
+
+.info-card a:hover {
+    color: #9B7E4A;
+}
+
+/* ─── Colosseum group lists ──────────────────────────────── */
+
+.colosseum-groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.85rem;
+}
+
+.group-time {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7A6446;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.guest-list {
+    list-style: none;
+    font-size: 0.88rem;
+    color: #4A3F35;
+    line-height: 1.75;
+}
+
+@media (max-width: 480px) {
+    .colosseum-groups {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── Suggestion lists ───────────────────────────────────── */
+
+.suggestion-list {
+    list-style: none;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.suggestion-list li {
+    font-size: 0.92rem;
+    color: #4A3F35;
+    line-height: 1.6;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.suggestion-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #7A6446;
+}
+
+.suggestion-list a {
+    color: #7A6446;
 }

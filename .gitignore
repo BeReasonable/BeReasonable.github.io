@@ -1,6 +1,9 @@
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
 .idea
 .DS_Store
 *.suo
@@ -17,7 +20,7 @@ Thumbs.db
 *.tmp
 *~
 
-# Node modules (if you add any build tools later)
+# Node modules
 node_modules/
 dist/
 
