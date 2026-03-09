@@ -557,6 +557,26 @@ footer p {
     border-radius: 20px;
     padding: 0.15em 0.65em;
     margin-top: 0.35rem;
+    text-decoration: none;
+}
+
+a.activity-tag:hover {
+    background-color: #C4A882;
+    color: #3D342B;
+}
+
+.booking-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #7A6446;
+    text-decoration: none;
+    border-bottom: 1px solid #C4A882;
+    margin-top: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.booking-link:hover {
+    color: #9B7E4A;
 }
 
 /* Tips box */
